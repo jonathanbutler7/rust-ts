@@ -131,19 +131,52 @@
 //     return num.unwrap_or(0) * 5;
 // }
 
-fn main() {
-    let file_name = std::env::args().nth(1).expect("the file name to be passed in");
-    let file = std::fs::read_to_string(file_name).expect("unable to read file to string");
-    file.lines().for_each(|line| {
-        // let print:usize = line.parse();
-        if let Ok(value) = line.parse::<usize>() {
-            println!("{}", value)
-        } else {
-            println!("line not a number")
-        }
-    })
-}
+// fn main() {
+//     let file_name = std::env::args().nth(1).expect("the file name to be passed in");
+//     let file = std::fs::read_to_string(file_name).expect("unable to read file to string");
+//     file.lines().for_each(|line| {
+//         // let print:usize = line.parse();
+//         if let Ok(value) = line.parse::<usize>() {
+//             println!("{}", value)
+//         } else {
+//             println!("line not a number")
+//         }
+//     })
+// }
 
 // fn multiply(nums: Vec<usize>, index: usize) -> usize {
 //     return nums.get(index).unwrap_or(&index) * 5;
 // }
+
+// #[derive(Debug)]
+// struct Item {
+//     count: usize,
+// }
+
+// fn add_one(item: &mut Item) {
+//     item.count += 1;
+// }
+
+// fn main() {
+//     let mut item = Item { count: 1 };
+//     add_one(&mut item);
+//     println!("{:?}", item);
+// }
+#[derive(Debug)]
+struct Item {
+    count: usize,
+}
+fn print_all(items: &Vec<Item>) {
+    items.iter().for_each(|item| { println!("{:?}", item.count) })
+    // for item in items {
+    //     println!("{:?}", item);
+    // }
+}
+
+fn main() {
+    let mut items = vec![Item { count: 1 }];
+    let first = items.first_mut();
+    println!("{:?}", first);
+    
+    print_all(&items);
+}
