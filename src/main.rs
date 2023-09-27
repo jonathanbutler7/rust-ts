@@ -40,19 +40,19 @@
 // }
 
 // fn main() {
-//     // let file = std::fs::read_to_string("lines").unwrap();
-//     // file.lines()
-//     //     .enumerate()
-//     //     .filter(|(index, _)| index % 2 == 0)
-//     //     .for_each(|(_, line)| println!("{}", line))
+// let file = std::fs::read_to_string("lines").unwrap();
+// file.lines()
+//     .enumerate()
+//     .filter(|(index, _)| index % 2 == 0)
+//     .for_each(|(_, line)| println!("{}", line))
 
-//     let file = std::fs::read_to_string("lines").unwrap();
-//     file.lines()
-//         .enumerate()
-//         .filter(|(index, _)| index % 2 == 0)
-//         .skip(2)
-//         .take(2)
-//         .for_each(|(_, line)| println!("{}", line))
+// let file = std::fs::read_to_string("lines").unwrap();
+// file.lines()
+//     .enumerate()
+//     .filter(|(index, _)| index % 2 == 0)
+//     .skip(2)
+//     .take(2)
+//     .for_each(|(_, line)| println!("{}", line))
 
 // }
 
@@ -162,16 +162,15 @@
 //     add_one(&mut item);
 //     println!("{:?}", item);
 // }
-#[derive(Debug)]
-struct Item {
-    count: usize,
-}
-fn print_all(items: &Vec<Item>) {
-    items.iter().for_each(|item| { println!("{:?}", item.count) })
-    // for item in items {
-    //     println!("{:?}", item);
-    // }
-}
+// #[derive(Debug)]
+// struct Item {
+//     count: usize,
+// }
+// fn print_all(items: &Vec<Item>) {
+// items.iter().for_each(|item| { println!("{:?}", item.count) })
+// for item in items {
+//     println!("{:?}", item);
+// }
 
 // fn main() {
 //     let mut items = vec![Item { count: 1 }];
@@ -182,8 +181,33 @@ fn print_all(items: &Vec<Item>) {
 //     // print_all(&items);
 // }
 
+// fn main() {
+//     let data = vec![1, 2, 3];
+//     let items = data.iter().map(|x| x + 1);
+//     println!("{:?}", items);
+// }
+
+mod shapes; // include in the build
+
+use crate::shapes::{ rect::Rect, circle::Circle, area::Area };
+
+// use shapes::{ Rect, Circle, Area }; // use it
+
 fn main() {
-    let data = vec![1, 2, 3];
-    let items = data.iter().map(|x| x + 1);
-    println!("{:?}", items);
+    let rect = Rect {
+        x: 0.0,
+        y: 0.0,
+        width: 10.0,
+        height: 10.0,
+    };
+
+    let circ = Circle {
+        x: 0.0,
+        y: 0.0,
+        radius: 10.0,
+    };
+
+    println!("{}", circ.area());
+    println!("{}", rect.area());
+    println!("{}", (6.7).area());
 }

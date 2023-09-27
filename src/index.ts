@@ -55,13 +55,38 @@ const fs = require("fs");
 //   return (nums[index] ?? index) * 5;
 // }
 
-const fileName = process.argv[2];
+// const fileName = process.argv[2];
 
-fs.readFileSync(fileName)
-  .toString()
-  .split("\n")
-  .forEach((line: string) => {
-    const print = parseInt(line);
-    if (isNaN(print)) console.log("Line not a number");
-    console.log(line);
-  });
+// fs.readFileSync(fileName)
+//   .toString()
+//   .split("\n")
+//   .forEach((line: string) => {
+//     const print = parseInt(line);
+//     if (isNaN(print)) console.log("Line not a number");
+//     console.log(line);
+//   });
+interface Area {
+  area(): number;
+}
+
+class Rectangle implements Area {
+  constructor(
+    public x: number,
+    public y: number,
+    public width: number,
+    public height: number
+  ) {}
+  area(): number {
+    return this.width * this.height;
+  }
+}
+
+class Circle {
+  constructor(public x: number, public y: number, public radius: number) {}
+  area(): number {
+    return this.radius * this.radius * Math.PI;
+  }
+}
+
+const circle = new Circle(1, 2, 3);
+circle.area();

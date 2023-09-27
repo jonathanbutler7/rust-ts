@@ -1,0 +1,9 @@
+{
+    "cSpell.words": [
+        "consts"
+    ],
+    "rust-analyzer.linkedProjects": [
+        "./Cargo.toml",
+        "./Cargo.toml"
+    ]
+}
